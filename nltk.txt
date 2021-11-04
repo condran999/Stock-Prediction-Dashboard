@@ -1,2 +1,4 @@
 wordnet
+corpus
 stopwords
+english
