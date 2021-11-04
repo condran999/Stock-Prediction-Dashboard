@@ -43,6 +43,7 @@ import plotly.express as px
 
 import re 
 import nltk
+import nltk;nltk.download('your_library')
 from nltk.corpus import stopwords
 from nltk.stem import WordNetLemmatizer
 import spacy
