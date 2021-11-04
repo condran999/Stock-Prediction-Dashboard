@@ -1,0 +1,17 @@
+matplotlib==3.3.4
+nltk==3.6.1
+numpy==1.19.5
+plotly==4.14.3
+spacy==3.0.6
+nsetools==1.0.11
+snscrape==0.3.4
+imbalanced_learn==0.8.0
+keras_nightly==2.5.0.dev2021032900
+pandas==1.2.4
+seaborn==0.11.1
+tensorflow==2.5.0
+yfinance==0.1.64
+streamlit==0.87.0
+imblearn==0.0
+keras==2.7.0
+scikit_learn==1.0.1
