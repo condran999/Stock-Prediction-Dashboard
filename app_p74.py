@@ -420,5 +420,10 @@ def main():
     
     
 if __name__ == '__main__':
-    main()
+       import warnings
+    warnings.warn("use 'python -m nltk', not 'python -m nltk.downloader'",         DeprecationWarning)
+    app.run_server(debug=True)
+#     main()
+
+    
 
