@@ -60,6 +60,9 @@ import streamlit as st
 from sklearn.feature_extraction.text import TfidfTransformer
 
 from plotly.subplots import make_subplots
+import en_core_web_sm
+#Lemitization purpose 
+nlp = en_core_web_sm.load()
 
 #Lemmatization
 wordnet=WordNetLemmatizer()
@@ -68,7 +71,7 @@ wordnet=WordNetLemmatizer()
 stop_words=stopwords.words('english')
 
 #Lemitization purpose 
-nlp=spacy.load('en_core_web_sm')
+# nlp=spacy.load('en_core_web_sm')
 
 # FUNCTION FOR STOCK DATA EXTRACTION
 def stock_data_extractor(Ticker):
