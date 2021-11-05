@@ -16,7 +16,6 @@ plt.style.use('fivethirtyeight')
 from pylab import rcParams
 rcParams['figure.figsize'] = 10, 6
 from sklearn.preprocessing import MinMaxScaler,StandardScaler
-import keras
 import tensorflow
 from tensorflow import keras
 from tensorflow.keras.models import Sequential
