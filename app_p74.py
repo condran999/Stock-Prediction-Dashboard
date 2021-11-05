@@ -19,11 +19,11 @@ from sklearn.preprocessing import MinMaxScaler,StandardScaler
 
 from tensorflow.python.keras.backend import set_session
 import tensorflow
-from tensorflow import keras
+# from tensorflow import keras
 from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import Dense, LSTM, Dropout,Bidirectional,Conv2D, Activation,Dropout,Flatten,Dense,Conv2D,MaxPooling2D,ZeroPadding2D,BatchNormalization,ELU
 from tensorflow.keras.optimizers import SGD
-from keras.activations import elu
+from tensorflow.keras.activations import elu
 import plotly.express as px
 import plotly.graph_objects as go
 
