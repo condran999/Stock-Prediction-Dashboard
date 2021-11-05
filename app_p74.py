@@ -22,7 +22,7 @@ import tensorflow
 from tensorflow import keras
 from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import Dense, LSTM, Dropout,Bidirectional,Conv2D, Activation,Dropout,Flatten,Dense,Conv2D,MaxPooling2D,ZeroPadding2D,BatchNormalization,ELU
-from keras.optimizers import SGD
+from tensorflow.keras.optimizers import SGD
 from keras.activations import elu
 import plotly.express as px
 import plotly.graph_objects as go
