@@ -305,32 +305,13 @@ def main():
     # Select box will able to selct from the tickers list just by typing few intial letter
     st.set_option('deprecation.showfileUploaderEncoding', False)
     Ticker = st.sidebar.selectbox("Enter Stock Ticker",stock_ticker_list)
-
-
     
     # stock extraction function
     stock_data = stock_data_extractor(Ticker)
     # stock DF display
     #st.subheader("Stock Data")
     #st.write(stock_data)
-    
-        # Top gainers button
-    nse=Nse()   
-    if st.button('Top Gainers'):
-        a =nse.get_top_gainers()
-        gainers = pd.DataFrame(a)
-        gainers= gainers[["symbol", "ltp"]]
-        gainers.columns = ["Stock Ticker","Close Price"]
-        st.write (gainers)
-        
-    # Top losers button
-    if st.button('Top Losers') :
-        b = nse.get_top_losers()
-        losers = pd.DataFrame (b)
-        losers= losers[["symbol", "ltp"]]
-        losers.columns = ["Stock Ticker","Close Price"]
-        st.write(losers)
-    
+   
     # Stock summary Plot
     stock_summay_plot=stock_summary(stock_data,Ticker)
     st.write(stock_summay_plot) 
@@ -412,7 +393,23 @@ def main():
     #st.subheader("Forecast Prediction")
     #st.write(forecast_data)
     
-    
+    # Top gainers button
+    st.subheader("Top Gainers")
+    nse=Nse()   
+    #if st.button('Top Gainers'):
+    a =nse.get_top_gainers()
+    gainers = pd.DataFrame(a)
+    gainers= gainers[["symbol", "ltp"]]
+    gainers.columns = ["Stock Ticker","Close Price"]
+    st.write (gainers)
+        
+    # Top losers button
+    st.subheader("Top Losers")
+    b = nse.get_top_losers()
+    losers = pd.DataFrame (b)
+    losers= losers[["symbol", "ltp"]]
+    losers.columns = ["Stock Ticker","Close Price"]
+    st.write(losers)
     
  
     
