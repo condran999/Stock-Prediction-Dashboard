@@ -176,7 +176,7 @@ def forecast(df, time_step,forecast_days):
         
         # load the model
         #model= keras.models.load_model("Model_deep_3%.h5")
-        model= keras.models.load_model("Model_deep_3%_new.h5")
+        model= tensorflow.keras.models.load_model("Model_deep_3%_new.h5")
         # Predict 
         pred = model.predict(X_input1)
 
