@@ -1,2 +1,2 @@
 # Stock-Prediction-Dashboard
-Stock Prediction Dashboard
+Link for the app - https://stock-forecasting-dashboard.herokuapp.com/
