@@ -40,7 +40,7 @@ import itertools
 from datetime import date, timedelta
 import yfinance as yf
 
-from nsetools import Nse
+# from nsetools import Nse
 import plotly.express as px
 
 import re 
@@ -88,32 +88,28 @@ def stock_data_extractor(Ticker):
 # FUNCTION FOR STOCK SUMMARY
 def stock_summary(df,Ticker):
     try:
-        # Nse is used to extract some last price
+        # for stock details
         Ticker_with_NS= Ticker+".NS"
-        nse = Nse()
-        # getting quote of the sbin
-        quote = nse.get_quote(Ticker)
-        
-        # for PE ratio extraction
         yfdata = yf.Ticker(Ticker_with_NS)
-    
-        string_name = quote['companyName']
+        
+        string_name = yfdata.info['longName']
         st.header('*%s*' % string_name)
-        st.write("NSE : ",quote['symbol']) 
-        st.write(quote['lastPrice'],yfdata.info['currency'])
-          
-      
-        a = float(quote['change'])
-        if a > 0:
-            st.write (quote['change'], '(',quote['pChange'],'%',')','\u2191','today',sep='') # '\u2191'up arrow
-        elif a < 0:
-            st.write (quote['change'], '(',quote['pChange'],'%',')','\u2193','today',sep='' ) # '\u2193'down arrow
+        st.write(yfdata.info['currentPrice'],"INR")
+        
+        change = np.round(yfdata.info['currentPrice']-yfdata.info['previousClose'],2)
+        pchange = np.round(change*100/yfdata.info['currentPrice'],2)
+         
+        
+        if change > 0:
+            st.write (change, '(', pchange,'%',')','\u2191','today',sep='') # '\u2191'up arrow
+        elif change < 0:
+            st.write (change, '(', pchange,'%',')','\u2193','today',sep='' ) # '\u2193'down arrow
         else:
-            st.write (quote['change'], '(',quote['pChange'],'%',')','-','today',sep='' )
+            st.write ( change, '(', pchange,'%',')','-','today',sep='' )
        
         
         # plotly Dynamic plot
-        fig = px.line(df, x=df.index, y='Close', title='Market Summary')
+        fig = px.line(df, x=df. index, y='Close', title='Market Summary')
         fig.update_xaxes(
             rangeslider_visible = True,
             rangeselector = dict(
@@ -128,13 +124,12 @@ def stock_summary(df,Ticker):
             )
         )
         st.plotly_chart(fig)
-  
-    
+        
         # Fundamental data 
-        st.write("Open : ", yfdata.info["open"], "   Mkt Cap : ", yfdata.info["marketCap"], "   ROE : ", (int((yfdata.info["returnOnEquity"]*100)*100)/100),"%") 
-        st.write("High : ", yfdata.info["dayHigh"], "  P/E Ratio : ", yfdata.info["trailingPE"], "    52-wk high : ", yfdata.info["fiftyTwoWeekHigh"])
-        st.write("Low :  ", yfdata.info["dayLow"], "   Div Yield : ",(int((yfdata.info["dividendYield"]*100)*100)/100),"%","    52-wk low : ", yfdata.info["fiftyTwoWeekLow"])
-        st.write("Recommendation by Yahoo Finance:", yfdata.info["recommendationKey"])
+        st.write("Open : ", yfdata.info["open"], "    Mkt Cap : ", yfdata.info["marketCap"], "  ROE : ", (int((yfdata.info["returnOnEquity"]*100)*100)/100),"%")
+        st.write("High : ", yfdata.info["dayHigh"], "    P/E Ratio : ", yfdata.info["trailingPE"], "    52-wk high : ", yfdata.info["fiftyTwoWeekHigh"])
+        st.write("Low :  ", yfdata.info["dayLow"], "   Div Yield : ",(int((yfdata.info["dividendYield"]*100)*100)/100),"%","       52-wk low : ", yfdata.info["fiftyTwoWeekLow"])
+        st.write("Recommendation by Yahoo Finance :", yfdata.info["recommendationKey"])
     except:
         pass
 
