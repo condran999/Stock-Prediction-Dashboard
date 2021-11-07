@@ -388,23 +388,23 @@ def main():
     #st.subheader("Forecast Prediction")
     #st.write(forecast_data)
     
-    # Top gainers button
-    st.subheader("Top Gainers")
-    nse=Nse()   
-    #if st.button('Top Gainers'):
-    a =nse.get_top_gainers()
-    gainers = pd.DataFrame(a)
-    gainers= gainers[["symbol", "ltp"]]
-    gainers.columns = ["Stock Ticker","Close Price"]
-    st.write (gainers)
+#     # Top gainers button
+#     st.subheader("Top Gainers")
+#     nse=Nse()   
+#     #if st.button('Top Gainers'):
+#     a =nse.get_top_gainers()
+#     gainers = pd.DataFrame(a)
+#     gainers= gainers[["symbol", "ltp"]]
+#     gainers.columns = ["Stock Ticker","Close Price"]
+#     st.write (gainers)
         
-    # Top losers button
-    st.subheader("Top Losers")
-    b = nse.get_top_losers()
-    losers = pd.DataFrame (b)
-    losers= losers[["symbol", "ltp"]]
-    losers.columns = ["Stock Ticker","Close Price"]
-    st.write(losers)
+#     # Top losers button
+#     st.subheader("Top Losers")
+#     b = nse.get_top_losers()
+#     losers = pd.DataFrame (b)
+#     losers= losers[["symbol", "ltp"]]
+#     losers.columns = ["Stock Ticker","Close Price"]
+#     st.write(losers)
     
  
     
