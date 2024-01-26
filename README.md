@@ -1,5 +1,4 @@
 # Stock-Prediction-Dashboard
-### Link for the app - https://stock-forecasting-dashboard.herokuapp.com/
 
 #### The web application is able to access a list of historical NSE stock prices. 
 #### The App will calculate the estimated closing price of a stock based on the historical data and also provide an instantaneous visualization, twitter sentiment and stock summary which will provide benefits for the investors in order to invest wisely.
